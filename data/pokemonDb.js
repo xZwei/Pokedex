@@ -1,4 +1,4 @@
-{
+const PokemonDb = {
     "pokemon": [{
       "id": 1,
       "num": "001",
@@ -4083,4 +4083,12 @@
         "Dark"
       ]
     }]
-  }
+  };
+
+export const getAllPokemon = () => {
+    return PokemonDb.pokemon;
+}
+
+export const getPokemonById = (id) => {
+    return PokemonDb.pokemon.find(pokemon => pokemon.id = id);
+}
