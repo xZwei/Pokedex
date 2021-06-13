@@ -4083,7 +4083,7 @@ const PokemonDb = {
         "Dark"
       ]
     }]
-  };
+};
 
 export const getAllPokemon = () => {
     return PokemonDb.pokemon;
