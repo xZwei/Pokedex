@@ -9,7 +9,8 @@ import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
 import withRoot from "../../withRoot";
 import { getAllPokemon } from "../../data/pokemonDb";
-import { getPokemonTypeImages } from "../../data/pokemonTypeImages";
+import { getPokemonTypeImages, createTypeImageElements } from "../../data/pokemonTypeImages";
+import { Link } from 'react-router-dom';
 
 const styles = (theme) => createStyles({
     paper: {
@@ -44,23 +45,17 @@ function Home(props) {
         setPokemonData(data);
     }, []);
 
-    const createImageElements = (urls) => {
-        //NOTE: 
-        // Normally an alt attribute would be the name of the type
-        // (which would change this implementation slightly) but not needed for a code challenge, imo 
-        return urls.map(url => <img alt="pokemon type" className={classes.image} src={url} />);
-    }
-
     return (
         <Container>
             <TableContainer component={Paper} className={classes.tableContainer}>
                 <Table stickyHeader className={classes.table}>
                     <TableHead>
                         <TableRow>
-                            <TableCell align="right" className={classes.tableHead}>Name</TableCell>
-                            <TableCell align="right" className={classes.tableHead}>Num</TableCell>
-                            <TableCell align="right" className={classes.tableHead}>Type</TableCell>
-                            <TableCell align="right" className={classes.tableHead}>Weaknesses</TableCell>
+                            <TableCell align="center" className={classes.tableHead}>Name</TableCell>
+                            <TableCell></TableCell>
+                            <TableCell align="center" className={classes.tableHead}>Num</TableCell>
+                            <TableCell align="center" className={classes.tableHead}>Type</TableCell>
+                            <TableCell align="center" className={classes.tableHead}>Weaknesses</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -70,10 +65,17 @@ function Home(props) {
 
                             return (
                                 <TableRow key={pokemon.num}>
-                                    <TableCell align="right">{pokemon.name}</TableCell>
-                                    <TableCell align="right">{pokemon.num}</TableCell>
-                                    <TableCell align="right">{createImageElements(pokemonTypeImageUrls)}</TableCell>
-                                    <TableCell align="right">{createImageElements(pokemonWeaknessImageUrls)}</TableCell>
+                                    <TableCell align="center">
+                                        <Link to={`/details/${pokemon.num}`}>
+                                            {pokemon.name}
+                                        </Link>
+                                    </TableCell>
+                                    <TableCell align="center">
+                                        <img src={pokemon.img} alt={pokemon.name} />
+                                    </TableCell>
+                                    <TableCell align="center">{pokemon.num}</TableCell>
+                                    <TableCell align="center">{createTypeImageElements(pokemonTypeImageUrls, classes)}</TableCell>
+                                    <TableCell align="center">{createTypeImageElements(pokemonWeaknessImageUrls, classes)}</TableCell>
                                 </TableRow>
                             );
                         })}

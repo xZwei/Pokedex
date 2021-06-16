@@ -28,3 +28,10 @@ export const getPokemonTypeImages = (types) => {
     });
     return images;
 };
+
+// NOTE: 
+// Normally an alt attribute would be the name of the type
+// (which would change this implementation) but not needed for a code challenge, imo 
+export const createTypeImageElements = (urls, classes) => {
+    return urls.map(url => <img alt="pokemon type" className={classes.image} src={url} />);
+}
