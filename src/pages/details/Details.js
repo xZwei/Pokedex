@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Container, Grid, Typography, createStyles, withStyles, Paper } from "@material-ui/core";
+import { Container, Grid, Typography, createStyles, withStyles, Paper} from "@material-ui/core";
 import { Link } from "react-router-dom";
 import withRoot from "../../withRoot";
 import { getPokemonById } from "../../data/pokemonDb";
