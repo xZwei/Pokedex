@@ -4090,5 +4090,5 @@ export const getAllPokemon = () => {
 }
 
 export const getPokemonById = (id) => {
-    return PokemonDb.pokemon.find(pokemon => pokemon.id = id);
+    return PokemonDb.pokemon.find(pokemon => pokemon.id === id);
 }
