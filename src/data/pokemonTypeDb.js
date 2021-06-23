@@ -1,3 +1,24 @@
+export const pokemonTypes = [
+    "Bug",
+    "Dark",
+    "Dragon",
+    "Electric",
+    "Fairy",
+    "Fighting",
+    "Fire",
+    "Flying",
+    "Ghost",
+    "Grass",
+    "Ground",
+    "Ice",
+    "Normal",
+    "Psychic",
+    "Poison",
+    "Rock",
+    "Steel",
+    "Water",
+]
+
 const baseSerebiiTypeImageUrl = "https://www.serebii.net/pokedex-bw/type/"
 
 const typeImages = {
